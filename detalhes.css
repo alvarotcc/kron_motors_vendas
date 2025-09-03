@@ -1,0 +1,160 @@
+/* Importação de fonte, variáveis e reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+:root { --primary-color: #007bff; --secondary-color: #343a40; --black-color: #000000; --background-color: #f8f9fa; --text-color: #333; --white-color: #fff; --header-height: 80px; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { 
+    background-color: var(--background-color); 
+    color: var(--text-color);
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* Header, Menu e Rodapé (Baseado no index.css) */
+.header { background-color: var(--black-color); color: var(--white-color); position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); z-index: 1000; }
+.header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 60px;
+    max-width: 180px;
+    transition: transform 0.3s ease;
+}
+.logo img:hover {
+    transform: scale(1.2);
+}
+.nav-menu ul { list-style: none; display: flex; gap: 30px;}
+.nav-menu a { color: var(--white-color); text-decoration: none; font-weight: 600; }
+.menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
+.footer { background-color: var(--secondary-color); color: var(--white-color); padding: 40px 0; text-align: center; }
+
+/* Botões */
+.btn-primary { 
+    display: block;
+    text-align: center;
+    background-color: var(--primary-color); 
+    color: var(--white-color); 
+    padding: 15px 30px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-weight: 600; 
+    transition: all 0.3s ease; 
+}
+.btn-primary:hover { background-color: #0056b3; transform: translateY(-3px); }
+.btn-primary i { margin-right: 10px; }
+
+/* Seção de Detalhes do Veículo */
+.vehicle-detail { 
+    padding: calc(var(--header-height) + 40px) 0 80px; 
+}
+.detail-layout { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    align-items: start; 
+}
+.gallery .main-image img { 
+    width: 100%; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.thumbnail-images { 
+    display: flex; 
+    gap: 10px; 
+    margin-top: 15px; 
+    flex-wrap: wrap; /* <-- Permite que as imagens quebrem a linha */
+    justify-content: center; /* (Opcional) Centraliza as imagens para um visual melhor */
+} 
+.thumbnail-images img { 
+    width: 100px; 
+    height: 75px; 
+    object-fit: cover; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    opacity: 0.6; 
+    transition: all 0.3s; 
+}
+.thumbnail-images img:hover { 
+    opacity: 1; 
+    transform: scale(1.05); 
+}
+.thumbnail-images img.active { 
+    opacity: 1; 
+    border: 2px solid var(--primary-color); 
+}
+.info h2 { 
+    font-size: 2.2rem; 
+}
+.info .price-tag { 
+    font-size: 2rem; 
+    font-weight: 700; 
+    color: var(--primary-color); 
+    margin: 15px 0; 
+}
+.info p { 
+    line-height: 1.7; 
+    margin-bottom: 25px; 
+}
+.specs-list { 
+    list-style: none; 
+    margin-bottom: 30px; 
+}
+.specs-list li { 
+    margin-bottom: 12px; 
+    font-size: 1rem; 
+}
+.specs-list i { 
+    color: var(--primary-color); 
+    margin-right: 10px; 
+    width: 20px; 
+    text-align: center; 
+}
+
+/* Animações */
+.animate-on-scroll { 
+    opacity: 0; 
+    transform: translateY(30px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+.animate-on-scroll.is-visible { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .detail-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    
+    /* Menu mobile - Lógica estável e correta */
+    .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0; /* <-- Adicione esta linha */
+    width: auto; /* <-- Mude width para auto */
+    background-color: var(--black-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+}
+    .nav-menu.active {
+        max-height: 500px;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .nav-menu a {
+        display: block;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+    }
+}

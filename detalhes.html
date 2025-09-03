@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kron Motors</title>
+    <link rel="stylesheet" href="detalhes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="catalogo.js" defer></script>
+    <script src="detalhes.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="assets/logo.png" alt="Kron Motors Logo"></a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="estoque.html" >Estoque</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="vehicle-detail">
+            <div class="container">
+                <div class="detail-layout" id="detail-container">
+                    
+                    <div class="gallery">
+                        <div class="main-image">
+                            <img src="" alt="Imagem principal do carro" id="mainImage">
+                        </div>
+                        <div class="thumbnail-images" id="thumbnail-container">
+                            </div>
+                    </div>
+
+                    <div class="info">
+                        <h2 id="car-name">Carregando...</h2>
+                        <p class="price-tag" id="car-price"></p>
+                        <p id="car-description"></p>
+                        <ul class="specs-list" id="car-specs-list">
+                            </ul>
+                        <a onclick="sendWhatsAppMessage()" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> Fale com um Consultor</a>
+
+<script>
+    function sendWhatsAppMessage() {
+        // Pega a URL da página atual
+        var pageUrl = window.location.href;
+        
+        // Define a mensagem com o texto e a URL
+        var message = "Olá! Gostaria de agendar uma visita e saber mais sobre este veiculo: " + pageUrl;
+        
+        // Codifica a mensagem para ser usada na URL
+        var encodedMessage = encodeURIComponent(message);
+        
+        // Cria a URL completa do WhatsApp
+        var whatsappUrl = "https://wa.me/5547997604967?text=" + encodedMessage;
+        
+        // Abre o link em uma nova aba
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container"><p>&copy; 2025 Kron Motors. Todos os direitos reservados.</p></div>
+    </footer>
+</body>
+</html>
